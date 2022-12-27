@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+    <!-- <img src="/static/images/viit.jpeg" class="center" width=100 height=80 /> -->
+    </div>
+    <div class="col-sm-4">
+        <form class="form-inline" action = "http://localhost:5000/home" method = "POST" enctype = "multipart/form-data">
+          <div class="input-group">
+              <input class="btn btn-outline-info form-control width100" type = "file" name = "file" />
+              <span class="input-group-btn">
+                  <input class="btn btn-outline-info ml-3 mt-1" type = "submit"/>
+              </span>
+          </div>
+        </form>
+    </div>
+    <div class="col-sm-4">
+    <!-- <input type="button" value="Predict Stock" class="center" style="margin:35px;" id="hide_show"  onclick="showImg();"/> -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row justify-content-center"> 
+    <div class="col">
+      <div class="content-section mt-5">
+        <div class="row">
+          <h2 class="ml-3 mt-4">ID of employee most likely to leave</h2>
+          {% for post in posts %}
+            <div class="col mt-4">
+              <h2>{{ post }}</h2>   
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col justify-content-center">
+      <h3 class="text-center mt-4" >Confusion Matrix</h3>
+      <img class="ml-5" src="{{ src }}" width="500">
+    </div> 
+  </div>
+</div>
+
+{% endblock content %}
